@@ -121,7 +121,6 @@ pipeline {
                 reportFiles: 'trivy_report.html',
                 reportName: 'Trivy Scan',
                 ])
-            }
         }
     }
 }
