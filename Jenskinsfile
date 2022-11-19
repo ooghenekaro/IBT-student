@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     // build image
-                    docker.build("335871625378.dkr.ecr.us-west-2.amazonaws.com/rekeyole-app:latest")
+                    docker.build("335871625378.dkr.ecr.eu-west-2.amazonaws.com/rekeyole-app:latest")
                 }
             }
         }
