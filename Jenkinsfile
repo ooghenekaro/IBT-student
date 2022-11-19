@@ -107,10 +107,11 @@ pipeline {
                                 "access_secret": AWS_SECRET_ACCESS_KEY
                         ]
                 )
-
             }
-       }
+
+        }
     }
+}
 
     post {
         always {
@@ -122,8 +123,8 @@ pipeline {
                 reportDir: '.',
                 reportFiles: 'trivy_report.html',
                 reportName: 'Trivy Scan',
-              ])
-            }
+            ])
+
         }
     }
 }
