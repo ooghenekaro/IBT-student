@@ -74,7 +74,10 @@ pipeline {
                            "ACCESS_SECRET: AWS_SECRET_ACCESS_KEY"
                        ]
                  )
+
+              }
             }
+
         }
         stage('Approval to Deploy to PROD') {
             steps{
@@ -102,7 +105,7 @@ pipeline {
                                 "compose_file": "${WORKSPACE}/docker-compose.yaml",
                                 "access_key": AWS_ACCESS_KEY_ID,
                                 "ACCESS_SECRET: AWS_SECRET_ACCESS_KEY"
-                             ]
+                        ]
                 )
 
             }
