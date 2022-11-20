@@ -57,7 +57,7 @@ pipeline {
             steps{
                 withCredentials ([[
                 $class: 'amazonWebServicesCredentialsBinding',
-                credentialsId: 'ooghenekaro-ecr',
+                credentialsId: 'ibt-ecr',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]])
@@ -65,7 +65,7 @@ pipeline {
                  ansiblePlaybook(
                        playbook: 'ansible/deploy-docker.yaml',
                        inventory: 'ansible/hosts',
-                       credentialsId: 'ooghenekaro-ssh',
+                       credentialsId: 'vm-ssh',
                        colorized: true,
                        extraVars: [
                            "myHosts" : "devServer",
@@ -90,14 +90,14 @@ pipeline {
             steps{
                 withCredentials ([[
                 $class: 'amazonWebServicesCredentialsBinding',
-                credentialsId: 'ooghenekaro-ecr',
+                credentialsId: 'ibt-ecr',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]){
                    ansiblePlaybook(
                          playbook: 'ansible/deploy-docker.yaml',
                          inventory: 'ansible/hosts',
-                         credentialsId: 'ooghenekaro-ssh',
+                         credentialsId: 'vm-ssh',
                          colorized: true,
                              extraVars: [
                                "myHosts" : "prodServer",
