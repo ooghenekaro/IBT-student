@@ -19,7 +19,7 @@
 
     - name: Copy docker compose file
       copy:
-        src: "{{compose_file}}"
+        src: /mnt/c/Users/Lenovo/IdeaProjects/IBT-student/docker-compose.yaml
         dest: /opt/webapps/
         mode: 0755
 
