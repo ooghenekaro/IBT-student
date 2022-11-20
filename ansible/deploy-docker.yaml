@@ -1,6 +1,6 @@
 ---
 - name: Deploy code on servers
-  hosts: "{{myHosts}}"
+  hosts: all
   become: yes
   remote_user: root
   become_user: root
