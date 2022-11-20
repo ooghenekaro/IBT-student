@@ -63,7 +63,7 @@ pipeline {
                 ]])
                  {
                  ansiblePlaybook(
-                       playbook: 'ansible/deploy-war.yaml',
+                       playbook: 'ansible/deploy-docker.yaml',
                        inventory: 'ansible/hosts',
                        credentialsId: 'ooghenekaro-ssh',
                        colorized: true,
@@ -93,10 +93,9 @@ pipeline {
                 credentialsId: 'ooghenekaro-ecr',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-                ]])
-                  {
+                ]]){
                    ansiblePlaybook(
-                         playbook: 'ansible/deploy-war.yaml',
+                         playbook: 'ansible/deploy-docker.yaml',
                          inventory: 'ansible/hosts',
                          credentialsId: 'ooghenekaro-ssh',
                          colorized: true,
