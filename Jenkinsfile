@@ -58,8 +58,8 @@ pipeline {
                 withCredentials ([[
                 $class: 'amazonWebServicesCredentialsBinding',
                 credentialsId: 'ooghenekaro-ecr',
-                accessKeyVariable: AWS_ACCESS_KEY_ID,
-                secretKeyVariable: AWS_SECRET_ACCESS_KEY
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]])
                  {
                  ansiblePlaybook(
@@ -89,10 +89,10 @@ pipeline {
         stage('Deploy to PROD') {
             steps{
                 withCredentials ([[
-                $class: 'amazonWebservicesCredentialsBinding',
+                $class: 'amazonWebServicesCredentialsBinding',
                 credentialsId: 'ooghenekaro-ecr',
-                accessKeyVariable: AWS_ACCESS_KEY_ID,
-                secretKeyVariable: AWS_SECRET_ACCESS_KEY
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]])
                   {
                    ansiblePlaybook(
