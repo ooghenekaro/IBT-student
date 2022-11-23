@@ -56,7 +56,7 @@ pipeline {
         stage('Deploy to DEV') {
             steps{
                 withCredentials ([[
-                $class: 'amazonWebServicesCredentialsBinding',
+                $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsId: 'ooghenekaro-ecr',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
@@ -89,7 +89,7 @@ pipeline {
         stage('Deploy to PROD') {
             steps{
                 withCredentials ([[
-                $class: 'amazonWebServicesCredentialsBinding',
+                $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsId: 'ooghenekaro-ecr',
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
