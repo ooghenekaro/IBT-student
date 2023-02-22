@@ -7,11 +7,13 @@ phases:
       - aws --version
       - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 335871625378.dkr.ecr.eu-west-2.amazonaws.com
       - REPOSITORY_URI=335871625378.dkr.ecr.eu-west-2.amazonaws.com/rekeyole-app 
+      - IMAGE_TAG=prod_$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:v1.0.1 .
+      - docker build -t $REPOSITORY_URI:v1.0.0 .
+      - docker tag $REPOSITORY_URI:v1.0.0 $REPOSITORY_URI:$IMAGE_TAG 
   post_build:
     commands:
       - echo Build completed on `date`
