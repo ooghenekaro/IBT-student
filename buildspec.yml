@@ -7,7 +7,7 @@ phases:
       - aws --version
       - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 335871625378.dkr.ecr.eu-west-2.amazonaws.com
       - REPOSITORY_URI=335871625378.dkr.ecr.eu-west-2.amazonaws.com/rekeyole-app 
-      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+      - IMAGE_TAG=dev-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
       - echo Build started on `date`
